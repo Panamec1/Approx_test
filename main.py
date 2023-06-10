@@ -20,7 +20,7 @@ def direct(indSize=2, mu=np.array([0.1, 0.1])):
     k = np.empty([indSize ** (len(mu)), indSize ** (len(mu))])
     start_time = time.time()
 
-    ind = np.array(range(0, indSize ** len(mu))) / indSize ** len(mu)
+    ind = np.array(range(0, indSize)) / indSize
     ind[0] = 0.0001
     ind[len(ind) - 1] = 0.9999
 
@@ -100,16 +100,15 @@ def approximation(mu, t):
 
 
 num = 5
-indSize = 3
+indSize = 10
 eps = 0.01
 
-t = [0.1, 0.2, 0.3, 0.1, 0.2,
-     0.1, 0.2, 0.3]
+t = [0.1, 0.2, 0.3, 0.1, 0.2]
 mu = np.array([0.01] * num)
 
 st = time.time()
 for i in range(num ** (len(mu))):
-    # print(i, num ** (len(mu)), time.time() - st)
+    print(i, num ** (len(mu)), time.time() - st)
     approximation(mu, t)
 print(time.time() - st, "--- Approx %s seconds ---")
 
