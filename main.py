@@ -99,17 +99,19 @@ def approximation(mu, t):
     return approx_value
 
 
-num = 5
-indSize = 10
+num = 7
+indSize = 7
 eps = 0.01
 
-t = [0.1, 0.2, 0.3, 0.1, 0.2]
+t = [0.1, 0.2, 0.3, 0.1, 0.2,
+     0.3, 0.1, 0.2, 0.1]
 mu = np.array([0.01] * num)
 
 st = time.time()
-for i in range(num ** (len(mu))):
-    print(i, num ** (len(mu)), time.time() - st)
+for i in range(indSize ** (len(mu))):
+    print(i, indSize ** (len(mu)), time.time() - st)
     approximation(mu, t)
 print(time.time() - st, "--- Approx %s seconds ---")
 
 direct(indSize, mu=mu)
+# 5 10 1551.643
